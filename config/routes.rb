@@ -3,4 +3,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  scope '/api' do
+    get '/predictions', to: 'predictions#index'
+    post '/predictions', to: 'predictions#create'
+    get '/predictions/:id', to: 'predictions#show'
+    put '/predictions/:id', to: 'predictions#update'
+    delete '/predictions/:id', to: 'predictions#destroy'
+  end
 end
