@@ -25,7 +25,7 @@ class PredictionsController < ApplicationController
     end
 
     def show
-        render json: @prediction
+        render json: @prediction.transform_prediction
     end
 
     def update

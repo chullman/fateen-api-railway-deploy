@@ -25,7 +25,7 @@ Content-Type: application/json
 
 ### Successfully showing a prediction
 GET http://localhost:3000/api/predictions/1
-
+Authorization: "{{token}}"
 
 ### Fail showing a prediction
 GET http://localhost:3000/api/predictions/999
