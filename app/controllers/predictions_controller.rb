@@ -1,21 +1,22 @@
 class PredictionsController < ApplicationController
+    before_action :authorize_request
     before_action :set_prediction, only: [:show, :update, :destroy]
 
     def index
         if params[:category]
             puts "Searching for #{params[:category]}"
-            @predictions = Prediction.find_by_category(params[:category])
+            @predictions = @current_user.predictions.find_by_category(params[:category])
             if @predictions.count == 0
                 return render json: {error: "No prediction of that category"}, status: 404
             end
         else
-            @predictions = Prediction.all
+            @predictions = @current_user.predictions.all
         end
         render json: @predictions
     end
 
     def create
-        @prediction = Prediction.create(prediction_params)
+        @prediction = @current_user.predictions.create(prediction_params)
         if @prediction.errors.any?
             render json: @prediction.errors, status: :unprocessable_entity
         else

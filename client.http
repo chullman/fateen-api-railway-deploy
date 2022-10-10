@@ -1,10 +1,12 @@
-@token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjU0NDk3NTF9.ycbRyOD908lvrhuspxiMX-tKJbvZXfeX8v3RdAm6Qkg"
+@token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjU0NTEzNTd9.8pKhtjkTjMX5yU88YWKkmeylN26E4xPtBY9gKYSWAFE"
 
 ### Get predictions
 GET http://localhost:3000/api/predictions
+Authorization: "{{token}}"
 
 ### Successfully create a prediction
 POST http://localhost:3000/api/predictions
+Authorization: "{{token}}"
 Content-Type: application/json
 
 {
@@ -14,6 +16,7 @@ Content-Type: application/json
 
 ### Fail to create a prediction
 POST http://localhost:3000/api/predictions
+Authorization: "{{token}}"
 Content-Type: application/json
 
 {
@@ -90,8 +93,8 @@ POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "fateen@test.com",
-    "password": "password"
+    "email": "ash@ketchum.com",
+    "password": "LuvUPikachu"
 }
 
 ### Get a user
@@ -101,3 +104,4 @@ Authorization: "{{token}}"
 ### Get all users
 GET http://localhost:3000/api/users
 Authorization: "{{token}}"
+
