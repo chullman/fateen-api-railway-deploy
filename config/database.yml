@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %> 
   database: fateen_api_production
   username: fateen_api
   password: <%= ENV["FATEEN_API_DATABASE_PASSWORD"] %>
