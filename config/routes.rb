@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   scope '/api' do
     resources :users, param: :username
+    get '/categories', to: 'categories#index'
     get '/predictions', to: 'predictions#index'
     post '/predictions', to: 'predictions#create'
     get '/predictions/:id', to: 'predictions#show'

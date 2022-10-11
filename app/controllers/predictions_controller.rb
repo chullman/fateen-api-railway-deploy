@@ -3,6 +3,7 @@ class PredictionsController < ApplicationController
     before_action :set_prediction, only: [:show, :update, :destroy]
 
     def index
+
         if params[:category]
             puts "Searching for #{params[:category]}"
             @predictions = @current_user.predictions.find_by_category(params[:category])
